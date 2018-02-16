@@ -1,15 +1,11 @@
-# Telecharge le text (comme une bourrin, dans le dosser 
+# Telecharge le text (dans /home/cloudera)
 wget http://....
 
-# deplace le text dans hadoop (comme un bourrin, dans aucun dossier)
+# deplace le text dans hadoop (dans aucun dossier également)
 hadoop fs -put anna_karenina anna_karenina
 
 # Sur java, exporter le projet en .jar (et le mettre dans /home/cloudera)
 
-# Creer un dossier pour envoyer le resultat ?
-hdfs dfs -mkdir MRDir1
-
-# Run jar file (apres l'avoir mis dans /home/cloudera)
 # MRDir2 ne doit pas exister au lancement du script
 hadoop jar WordCount_1.jar cs.Lab2.WordCount.WordCountDriver anna_karenina MRDir2
 
@@ -17,6 +13,5 @@ hadoop jar WordCount_1.jar cs.Lab2.WordCount.WordCountDriver anna_karenina MRDir
 hadoop fs -ls MRDir2
 hadoop fs -cat MRDir2/part-r-00000
 
-# ps exo_3 c'est le fichier java.
 # attention, mauvais split dans le mapper, c'est un peu con de séparer par virgule...
 

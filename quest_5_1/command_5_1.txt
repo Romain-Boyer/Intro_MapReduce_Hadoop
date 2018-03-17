@@ -1,0 +1,52 @@
+# Question 5_1
+
+
+
+# Create the folder input_1 on HDFS
+hadoop 
+fs -mkdir input_1
+
+
+
+# Download text on /home/cloudera/ and transfer them to HDFS/input_1
+
+wget http://www.textfiles.com/etext/FICTION/defoe-robinson-103.txt
+
+wget http://www.textfiles.com/etext/FICTION/callwild
+
+
+hadoop fs -copyFromLocal defoe-robinson-103.txt input
+
+hadoop fs -copyFromLocal callwild input
+
+
+
+# Check input_1
+
+hadoop fs -ls input/
+
+
+
+# Run jar file in /home/cloudera)
+hadoop jar 5_1.jar cs.Lab2.WordCount.job1_driver
+
+hadoop jar 5_1.jar cs.Lab2.WordCount.job2_driver
+
+hadoop jar 5_1.jar cs.Lab2.WordCount.job3_driver
+
+
+
+
+
+# Remove folder
+
+hadoop fs -rm -r name_folder
+
+
+# Print results
+
+hadoop fs -cat 1-word-freq/part-r-00000
+
+hadoop fs -cat 2-word-counts/part-r-00000
+
+hadoop fs -cat 3-tf-idf/part-r-00000
